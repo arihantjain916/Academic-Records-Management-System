@@ -94,6 +94,64 @@ Header: Authorization: Bearer 'Token'
 | :----------- | :------- | :---------------------  |
 | `id`         | `string` | **Required**. student id|
 
+#### Create Class
+
+```http
+  POST /api/v1/class/create
+```
+
+| Parameter    | Type     | Description             |
+| :----------- | :------- | :---------------------  |
+| `name`         | `string` | **Required**.         |
+
+
+#### Create Subjects
+
+```http
+  POST /api/v1/class/${id}/subjects
+```
+
+| Parameter    | Type     | Description             |
+| :----------- | :------- | :---------------------  |
+| `id`         | `string` | **Required**. class id  |
+|`subjects`    |`array`   |**Required**. class id   |
+
+*Example:* subjects=["hindi","science"....] 
+
+
+#### GET Subjects
+
+```http
+  GET /api/v1/class/${id}/subjects
+```
+
+| Parameter    | Type     | Description             |
+| :----------- | :------- | :---------------------  |
+| `id`         | `string` | **Required**. class id  |
+
+#### Add Marks
+
+```http
+  POST /api/v1/marks/${id}/add
+```
+
+| Parameter    | Type     | Description             |
+| :----------- | :------- | :---------------------  |
+| `id`         | `string` | **Required**.subject id |
+| `marks`      | `string` | **Required**.           |
+| `studentname`| `string` | **Required**.           |
+
+#### GET Marks
+
+```http
+  POST /api/v1/marks/${id}/add
+```
+
+| Parameter| Type     | Description             |
+| :--------| :------- | :---------------------  |
+| `id`     | `string` | **Required**.subject id |
+| `studid` | `string` | **Required**. student id|
+
 
 ## Environment Variables
 
@@ -108,8 +166,8 @@ To run this project, you will need to add the following environment variables to
 
 ## Tech Stack
 
-**Server:** Node, Express  
-**Database:** MongoDB
+**Server:** ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+**Database:** ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 
 ## Run Locally
@@ -161,7 +219,6 @@ Django, Node.js, SQL, NoSQL, Reactjs, Nextjs
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arihantjain916)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/arihantjain916)
-
 ## Feedback
 
 If you have any feedback, please reach out at arihantj916@gmail.com
