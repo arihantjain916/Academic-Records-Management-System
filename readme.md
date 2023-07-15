@@ -1,13 +1,19 @@
 
+
 # ERP-Portal
 
 Welcome to the ERP-Portal project! This powerful web application is designed specifically for educational institutions, including schools, colleges, and universities, to efficiently manage and showcase student details. The project focuses on the backend implementation using Node.js, providing a robust foundation for handling student information and streamlining administrative tasks.
 
+Here I have integrate the [Library API](https://github.com/arihantjain916/Library-Management-System.git) which I have made using GraphQL.  
+
 
 ## API Reference
 
-**Note**: Use token to access all the protected routes.  
-Header: Authorization: Bearer 'Token'
+**Note**:
+- Use token to access all the protected routes.  
+- To access the GraphQL Routes [click here](https://documenter.getpostman.com/view/18412970/2s946fdsKy)
+
+
 
 
 #### Register User
@@ -162,6 +168,8 @@ To run this project, you will need to add the following environment variables to
 `PORT`
 
 `JWT_SECRET`
+
+`GRAPHQL_ENDPOINT`
 
 
 ## Tech Stack
