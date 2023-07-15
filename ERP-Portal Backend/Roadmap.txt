@@ -1,9 +1,0 @@
-Roadmap:
-1. Create Login and signup for all users. (DONE)
-2. Create studentmodel and create routes to enter student details, and read students details. (DONE)
-3. Create Update and Delete routes. (DONE)
-
-
-class --> subject(classname) --> marks(subjectname)
-
-student
