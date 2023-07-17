@@ -1,8 +1,8 @@
 
 
-# ERP-Portal
+# Academic Records Management System
 
-Welcome to the ERP-Portal project! This powerful web application is designed specifically for educational institutions, including schools, colleges, and universities, to efficiently manage and showcase student details. The project focuses on the backend implementation using Node.js, providing a robust foundation for handling student information and streamlining administrative tasks.
+Welcome to theAcademic Records Management System! This powerful web application is designed specifically for educational institutions, including schools, colleges, and universities, to efficiently manage and showcase student details. The project focuses on the backend implementation using Node.js, providing a robust foundation for handling student information and streamlining administrative tasks.
 
 Here I have integrate the [Library API](https://github.com/arihantjain916/Library-Management-System.git) which I have made using GraphQL.  
 
