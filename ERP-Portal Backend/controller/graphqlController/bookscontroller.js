@@ -183,8 +183,7 @@ const updatebook = asyncHandler(async (req, res) => {
           title: title,
         },
       };
-      console.log(variables);
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT,fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
