@@ -5,6 +5,7 @@ const { HttpLink } = require("apollo-link-http");
 const gql = require("graphql-tag");
 const asyncHandler = require("express-async-handler");
 const dotenv = require("dotenv");
+const fetch = require("node-fetch");
 dotenv.config();
 
 // @description           Create author Function
