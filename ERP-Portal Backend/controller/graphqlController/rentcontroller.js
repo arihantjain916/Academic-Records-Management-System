@@ -41,7 +41,7 @@ const createrent = asyncHandler(async (req, res) => {
         ],
       },
     };
-    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -93,7 +93,7 @@ const getRent = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
-    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -147,7 +147,7 @@ const getfine = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
-    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -196,7 +196,7 @@ const returnbook = asyncHandler(async (req, res) => {
         bookId: bookId,
       },
     };
-    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -238,7 +238,7 @@ const deleterent = asyncHandler(async (req, res) => {
       const variables = {
         id: id,
       };
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
