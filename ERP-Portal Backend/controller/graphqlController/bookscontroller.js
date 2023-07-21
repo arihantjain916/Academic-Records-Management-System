@@ -156,6 +156,7 @@ const updatebook = asyncHandler(async (req, res) => {
     noofbooksavailable,
     rating,
   } = req.body;
+  // console.log(req.body)
   if (!id) {
     return res.status(403).json({
       message: "id cant be null",
@@ -165,24 +166,25 @@ const updatebook = asyncHandler(async (req, res) => {
   if (req.isAdmin) {
     try {
       const mutation = gql`
-        mutation EditBook($id: ID!, $bookInput: BookInput) {
-          editBook(ID: $id, bookInput: $bookInput)
+        mutation EditBook($id: ID!, $updatebookInput: UpdateBookInput) {
+          editBook(ID: $id, updatebookInput: $updatebookInput)
         }
       `;
 
       const variables = {
         id: id,
-        bookInput: {
+        updatebookInput: {
           description: description,
-          title: title,
           isbn: isbn,
           language: language,
-          price: price,
           noofbooksavailable: noofbooksavailable,
+          price: price,
           rating: rating,
+          title: title,
         },
       };
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
+      console.log(variables);
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
