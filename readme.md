@@ -185,7 +185,7 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone https://github.com/arihantjain916/ERP-Portal.git
+  git clone https://github.com/arihantjain916/Academic-Records-Management-System.git
 ```
 
 Go to the project directory
