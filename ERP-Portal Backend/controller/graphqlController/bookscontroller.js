@@ -1,3 +1,4 @@
+const { createHttpLink } = require("apollo-link-http");
 const { ApolloClient } = require("apollo-client");
 const { InMemoryCache } = require("apollo-cache-inmemory");
 const { HttpLink } = require("apollo-link-http");
@@ -5,6 +6,7 @@ const gql = require("graphql-tag");
 const asyncHandler = require("express-async-handler");
 const dotenv = require("dotenv");
 dotenv.config();
+const fetch = require("node-fetch");
 
 // @description           Create Book Function
 // @route                 POST api/v1/book/create
@@ -119,10 +121,15 @@ const getbook = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
+    // const client = new ApolloClient({
+    //   link: new HttpLink({
+    //     uri: process.env.GRAPHQL_ENDPOINT,
+    //   }),
+    //   cache: new InMemoryCache(),
+    // });
     const client = new ApolloClient({
-      link: new HttpLink({
-        uri: process.env.GRAPHQL_ENDPOINT,
-      }),
+      link: link,
       cache: new InMemoryCache(),
     });
 
