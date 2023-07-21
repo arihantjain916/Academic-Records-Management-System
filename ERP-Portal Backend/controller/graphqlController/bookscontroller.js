@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const fetch = require("node-fetch");
 
+
 // @description           Create Book Function
 // @route                 POST api/v1/book/create
 // @access                Private
@@ -62,10 +63,9 @@ const createbook = asyncHandler(async (req, res) => {
           noofbooksavailable: noofbooksavailable,
         },
       };
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
-        link: new HttpLink({
-          uri: process.env.GRAPHQL_ENDPOINT,
-        }),
+        link: link,
         cache: new InMemoryCache(),
       });
 
@@ -80,7 +80,7 @@ const createbook = asyncHandler(async (req, res) => {
           res.status(500).json({ error: err.message });
         });
     } catch (error) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ error: error.message });
     }
   } else {
     res.status(403).json({ message: "Only admin can add books" });
@@ -122,12 +122,6 @@ const getbook = asyncHandler(async (req, res) => {
       id: id,
     };
     const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
-    // const client = new ApolloClient({
-    //   link: new HttpLink({
-    //     uri: process.env.GRAPHQL_ENDPOINT,
-    //   }),
-    //   cache: new InMemoryCache(),
-    // });
     const client = new ApolloClient({
       link: link,
       cache: new InMemoryCache(),
@@ -188,10 +182,9 @@ const updatebook = asyncHandler(async (req, res) => {
           rating: rating,
         },
       };
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
-        link: new HttpLink({
-          uri: process.env.GRAPHQL_ENDPOINT,
-        }),
+        link: link,
         cache: new InMemoryCache(),
       });
 
@@ -234,10 +227,9 @@ const deletebook = asyncHandler(async (req, res) => {
       const variables = {
         id: id,
       };
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
-        link: new HttpLink({
-          uri: process.env.GRAPHQL_ENDPOINT,
-        }),
+        link: link,
         cache: new InMemoryCache(),
       });
 
@@ -252,7 +244,7 @@ const deletebook = asyncHandler(async (req, res) => {
           res.status(500).json({ error: err.message });
         });
     } catch (error) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ error: error.message });
     }
   } else {
     res.status(403).json({ message: "Only admin can delete books" });
