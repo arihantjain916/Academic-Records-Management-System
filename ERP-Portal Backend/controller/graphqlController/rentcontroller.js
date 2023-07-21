@@ -40,12 +40,11 @@ const createrent = asyncHandler(async (req, res) => {
         ],
       },
     };
-    const client = new ApolloClient({
-      link: new HttpLink({
-        uri: process.env.GRAPHQL_ENDPOINT,
-      }),
-      cache: new InMemoryCache(),
-    });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const client = new ApolloClient({
+        link: link,
+        cache: new InMemoryCache(),
+      });
 
     client
       .mutate({ mutation, variables })
@@ -58,7 +57,7 @@ const createrent = asyncHandler(async (req, res) => {
         res.status(500).json({ error: err.message });
       });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -93,12 +92,11 @@ const getRent = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
-    const client = new ApolloClient({
-      link: new HttpLink({
-        uri: process.env.GRAPHQL_ENDPOINT,
-      }),
-      cache: new InMemoryCache(),
-    });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const client = new ApolloClient({
+        link: link,
+        cache: new InMemoryCache(),
+      });
 
     client
       .query({ query, variables })
@@ -111,7 +109,7 @@ const getRent = asyncHandler(async (req, res) => {
         res.status(500).json({ error: err.message });
       });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -148,12 +146,11 @@ const getfine = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
-    const client = new ApolloClient({
-      link: new HttpLink({
-        uri: process.env.GRAPHQL_ENDPOINT,
-      }),
-      cache: new InMemoryCache(),
-    });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const client = new ApolloClient({
+        link: link,
+        cache: new InMemoryCache(),
+      });
 
     client
       .mutate({ mutation, variables })
@@ -166,7 +163,7 @@ const getfine = asyncHandler(async (req, res) => {
         res.status(500).json({ error: err.message });
       });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -198,12 +195,11 @@ const returnbook = asyncHandler(async (req, res) => {
         bookId: bookId,
       },
     };
-    const client = new ApolloClient({
-      link: new HttpLink({
-        uri: process.env.GRAPHQL_ENDPOINT,
-      }),
-      cache: new InMemoryCache(),
-    });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const client = new ApolloClient({
+        link: link,
+        cache: new InMemoryCache(),
+      });
 
     client
       .mutate({ mutation, variables })
@@ -216,7 +212,7 @@ const returnbook = asyncHandler(async (req, res) => {
         res.status(500).json({ error: err.message });
       });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -241,10 +237,9 @@ const deleterent = asyncHandler(async (req, res) => {
       const variables = {
         id: id,
       };
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
       const client = new ApolloClient({
-        link: new HttpLink({
-          uri: process.env.GRAPHQL_ENDPOINT,
-        }),
+        link: link,
         cache: new InMemoryCache(),
       });
 
@@ -259,7 +254,7 @@ const deleterent = asyncHandler(async (req, res) => {
           res.status(500).json({ error: err.message });
         });
     } catch (error) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ error: error.message });
     }
   } else {
     res.status(403).json({ message: "Only admin can register students" });
