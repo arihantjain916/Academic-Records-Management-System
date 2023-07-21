@@ -24,6 +24,7 @@ const protect = asyncHandler(async (req, res, next) => {
       if (blacklistedToken) {
         return res.status(401).json({ message: "Invalid token" });
       } else {
+        req.token = token;
         req.user = user;
 
         if (user.type === "admin") {
