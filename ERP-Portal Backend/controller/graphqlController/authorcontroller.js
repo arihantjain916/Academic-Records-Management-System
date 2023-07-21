@@ -33,7 +33,7 @@ const createauthor = asyncHandler(async (req, res) => {
           email: email,
         },
       };
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -87,7 +87,7 @@ const getauthor = asyncHandler(async (req, res) => {
     const variables = {
       id: id,
     };
-    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+    const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
     const client = new ApolloClient({
       link: link,
       cache: new InMemoryCache(),
@@ -133,7 +133,7 @@ const updateauthor = asyncHandler(async (req, res) => {
           email: email,
         },
       };
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
@@ -176,7 +176,7 @@ const deleteauthor = asyncHandler(async (req, res) => {
       const variables = {
         id: id,
       };
-      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
+      const link = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT, fetch });
       const client = new ApolloClient({
         link: link,
         cache: new InMemoryCache(),
