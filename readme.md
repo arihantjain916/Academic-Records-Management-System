@@ -6,7 +6,6 @@ Welcome to theAcademic Records Management System! This powerful web application 
 
 Here I have integrate the [Library API](https://github.com/arihantjain916/Library-Management-System.git) which I have made using GraphQL.  
 
-I have also host this [API](https://aa-production-6b59.up.railway.app/api/v1) go and check
 
 
 ## API Reference
