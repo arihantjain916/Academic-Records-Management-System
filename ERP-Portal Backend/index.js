@@ -13,29 +13,30 @@ app.use(
     extended: true,
   })
 );
-// var whitelist = ["http://52.91.35.190:3000", "http://3.92.221.234:3000"];
-// var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(null, false);
-//     }
-//   },
-//   methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
-//   optionsSuccessStatus: 200,
-//   credentials: true,
-//   allowedHeaders: [
-//     "Content-Type",
-//     "Authorization",
-//     "X-Requested-With",
-//     "device-remember-token",
-//     "Access-Control-Allow-Origin",
-//     "Origin",
-//     "Accept",
-//   ],
-// };
-// app.use(cors(corsOptions));
+// var whitelist = ["*"];
+var corsOptions = {
+  origin: "*",
+  // function (origin, callback) {
+  //   if (whitelist.indexOf(origin) !== -1) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(null, false);
+  //   }
+  // }
+  methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
+  optionsSuccessStatus: 200,
+  credentials: true,
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "device-remember-token",
+    "Access-Control-Allow-Origin",
+    "Origin",
+    "Accept",
+  ],
+};
+app.use(cors(corsOptions));
 
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
